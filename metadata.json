@@ -1,0 +1,6 @@
+{
+  "name": "Infinity AI Studio",
+  "description": "Infinity AI Studio - A premium Android AI application with seamless backend integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
