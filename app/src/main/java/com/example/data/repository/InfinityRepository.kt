@@ -44,7 +44,9 @@ class InfinityRepository {
     
     suspend fun login(email: String, password: String): Result<AuthResponse> {
         return try {
-            Result.success(api.login(LoginRequest(email, password)))
+            val response = api.login(LoginRequest(email, password))
+            ApiClient.currentToken = response.token
+            Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)
         }
@@ -52,7 +54,9 @@ class InfinityRepository {
 
     suspend fun signup(name: String, email: String, password: String): Result<AuthResponse> {
         return try {
-            Result.success(api.signup(SignupRequest(name, email, password)))
+            val response = api.signup(SignupRequest(name, email, password))
+            ApiClient.currentToken = response.token
+            Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)
         }

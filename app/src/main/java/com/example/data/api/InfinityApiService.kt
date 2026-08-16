@@ -9,31 +9,31 @@ import retrofit2.http.Query
 import com.squareup.moshi.JsonClass
 
 interface InfinityApiService {
-    @POST("/auth/login")
+    @POST("/api/auth/login")
     suspend fun login(@Body request: LoginRequest): AuthResponse
 
-    @POST("/auth/signup")
+    @POST("/api/auth/signup")
     suspend fun signup(@Body request: SignupRequest): AuthResponse
 
-    @GET("/models")
+    @GET("/api/models")
     suspend fun getModels(): List<AiModel>
 
-    @GET("/chats")
+    @GET("/api/chats")
     suspend fun getRecentChats(): List<ChatSummary>
 
-    @POST("/chat/message")
+    @POST("/api/chat/message")
     suspend fun sendMessage(@Body request: ChatMessageRequest): ChatMessageResponse
     
-    @POST("/chat/message/{messageId}/feedback")
+    @POST("/api/chat/message/{messageId}/feedback")
     suspend fun submitFeedback(@Path("messageId") messageId: String, @Body request: FeedbackRequest)
     
-    @GET("/user/profile")
+    @GET("/api/user/profile")
     suspend fun getProfile(): UserProfile
 
-    @GET("/agents")
+    @GET("/api/agents")
     suspend fun getAgents(): List<AiAgent>
 
-    @POST("/agents")
+    @POST("/api/agents")
     suspend fun createAgent(@Body request: CreateAgentRequest): AiAgent
 }
 
